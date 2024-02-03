@@ -18,12 +18,20 @@ class HomeController extends Controller
         $book = Book::all();
 
         return view('welcome', [
-            "books" => $book
+            'books' => $book
         ]);
     }
 
     public function storebook(Request $request)
     {
+        // $request->validate([
+        //     'title' =>  'required|string|max:75',
+        //     'author' => 'required|max:55',
+        //     'description' => 'required|string',
+        //     'price' => 'required|numeric|min:3|max:3|decimal:2',
+        //     'quantity' => 'required|numeric',
+        // ]);
+
         $book = new Book();
 
         $book->title = $request->title;
@@ -33,13 +41,15 @@ class HomeController extends Controller
         $book->quantity = $request->quantity;
 
         // Image request
-            $image = $request->file('image');
-            $filename = Str::uuid()->toString() . '-' . time() . $image->getClientOriginalExtension();
-            // Move image to folder
-            $image->move('uploads/', $filename);
-            $book->image = $filename;
+        $image = $request->file('image');
+        $filename = Str::uuid()->toString() . '-' . time() . $image->getClientOriginalExtension();
+        // Move image to folder
+        $image->move('uploads/', $filename);
+        $book->image = $filename;
 
-            $book->save();
+        $book->save();
+
+        return redirect()->back()->with('stored', 'Book stored successfully');
     }
 
     public function viewbook($id)
@@ -47,7 +57,7 @@ class HomeController extends Controller
         $book = Book::find($id);
 
         return view('viewbook', [
-            "book" => $book
+            'book' => $book
         ]);
     }
 }

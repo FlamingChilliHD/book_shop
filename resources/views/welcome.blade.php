@@ -6,6 +6,13 @@ The book shop
 @endsection
 
 {{-- New content --}}
+
+@if (session('stored'))
+<div id="message" class="alert alert-success">
+    {{ session('stored') }}
+</div><hr>
+@endif
+
 @section('content')
     <div class="all">
         <div class="slider">
@@ -57,5 +64,6 @@ The book shop
                 </div>
             @endforeach
         </div>
-    </div><br><hr><br>
+    </div><br>
+    <hr><br>
 @endsection

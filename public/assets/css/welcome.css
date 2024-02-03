@@ -203,6 +203,7 @@
     {
         display: flex;
         width: 100%;
+        justify-content: space-between;
     }
 
     a
@@ -424,4 +425,32 @@
         color: red;
         font-size: 16px;
         font-family: 'Noto Sans', sans-serif;
+    }
+
+    /* home.blade.php */
+
+    #box
+    {
+        background: wheat;
+    }
+
+    .shop
+    {
+        text-decoration: none;
+        background: coral;
+        padding: 10px;
+        font-weight: bolder;
+        font-size: 20px;
+        color: royalblue;
+        margin-right: 15px;
+    }
+
+    .add
+    {
+        text-decoration: none;
+        background: coral;
+        padding: 10px;
+        font-weight: bolder;
+        font-size: 20px;
+        color: royalblue;
     }

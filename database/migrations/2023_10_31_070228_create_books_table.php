@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("title");
             $table->string("author");
             $table->string("description");
-            $table->integer("price");
+            $table->decimal("price", 6, 2);
             $table->integer("quantity");
             $table->string("image")->nullable();
             $table->timestamps();

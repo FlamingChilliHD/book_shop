@@ -1,32 +1,6 @@
 @extends('layouts.app')
 
-<style>
-    #box
-    {
-        background: wheat;
-    }
-
-    .shop
-    {
-        text-decoration: none;
-        background: coral;
-        padding: 10px;
-        font-weight: bolder;
-        font-size: 20px;
-        color: royalblue;
-        margin-right: 15px;
-    }
-
-    .add
-    {
-        text-decoration: none;
-        background: coral;
-        padding: 10px;
-        font-weight: bolder;
-        font-size: 20px;
-        color: royalblue;
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('assets/css/welcome.css') }}">
 
 @section('content')
     <div class="container">
@@ -40,12 +14,6 @@
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
-                        @endif
-
-                        @if(auth()->user()->Admin)
-                            <a href="" class="shop">The shop</a>
-                            <a href="{{ route('create') }}" class="add">Admin panel</a>
-                            @else <a href="" class="shop">The shop</a>
                         @endif
                     </div>
                 </div>
